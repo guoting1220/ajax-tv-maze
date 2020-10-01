@@ -57,10 +57,10 @@ function populateShows(shows) {
          <div class="card mb-3 overflow-auto" style=" height: 40rem" data-show-id="${show.id}"> 
             <img class="card-img-top mt-0 mb-2" src=${show.image}>            
             <div class="card-body"> 
-              <button class="btn btn-success float-right showEpiBtn" class="btn btn-primary">Episodes</button>           
+              <button class="btn btn-success float-right showEpiBtn">Episodes</button>           
               <h5 class="card-title">${show.name}</h5>
               <p class="card-text">${show.summary}</p>              
-           </div>
+           </div> 
          </div>
        </div>
       `);
@@ -124,4 +124,7 @@ $("#shows-list").on("click", ".showEpiBtn", async function(e) {
   let showId = $(e.target).parent().parent().data("show-id");
   let episodes = await getEpisodes(showId);
   populateEpisodes(episodes);  
+  $(e.target).attr("data-toggle", "popover");
+  $(e.target).attr("data-content", "hi");
 })
+
