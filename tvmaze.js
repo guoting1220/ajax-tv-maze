@@ -124,7 +124,5 @@ $("#shows-list").on("click", ".showEpiBtn", async function(e) {
   let showId = $(e.target).parent().parent().data("show-id");
   let episodes = await getEpisodes(showId);
   populateEpisodes(episodes);  
-  $(e.target).attr("data-toggle", "popover");
-  $(e.target).attr("data-content", "hi");
 })
 
